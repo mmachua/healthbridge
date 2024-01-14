@@ -1,0 +1,22 @@
+{% extends "base.html" %} 
+{% load static %}
+{ {% block head %}
+    <title>map</title>
+{% endblock head %}}
+
+{% block body %}
+
+ <div> {{ map | safe }}</div>
+
+
+<div class="footer" style="color:;"> 
+        <hr/>
+       <footer class="container">
+            <p class="float-right"><a href="#">Back to top</a></p>
+              
+            <p>Residence Technology  &copy; 2022  <a href="{% url 'signup' %}">Create An Account</a> |  <a href="{% url 'home:privacy' %}">Privacy</a><a href="{% url 'home:terms' %}">Terms</a> <a href="{% url 'home:Contact' %}">contact us</a>
+          </footer>   
+    
+    </div>
+   
+{% endblock body %} 

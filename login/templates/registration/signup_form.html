@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block head %}
+<title> Signup to CramHub</title>
+{% endblock head  %}}
+
+{% block body %}
+
+<br/>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-8 col-sm-10 col-12">
+      <h2>Sign up </h2>
+      <form method="post" novalidate>
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}">
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-danger">Sign Up  →</button>
+      </form>
+      <br>
+      <a href="{% url 'password_reset' %}" class="btn btn-link">Forgot Password? Reset Here</a>
+    </div>
+  </div>
+</div>
+
+<br>
+<div class="footer" style="color:;"> 
+        <hr/>
+       <footer class="container">
+            <p class="float-right"><a href="#">Back to top</a></p>
+              
+            <p>CramHub  &copy; 2023 <a href="{% url 'home:privacy' %}">Privacy</a><a href="{% url 'home:terms' %}">Terms</a> <a href="{% url 'home:Contact' %}">contact us</a>
+          </footer>   
+    
+    </div>
+   
+
+{% endblock body %}

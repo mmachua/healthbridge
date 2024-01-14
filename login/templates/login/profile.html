@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+    { {% block head %}
+    <title>Profile</title>
+{% endblock head %}}
+ {% block body %} 
+<!--navbar with profile element tabs user authentication is necessary for security-->
+ 
+<nav class="navbar navbar-expand text-white shadow navbar " style="background-color:white;">
+    {% if user.is_authenticated %}
+    <div class="dropdown">
+        <button class="btn btn-sm  dropdown-toggle text-red" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color:white;">
+         Edit profile
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        
+         <!-- <a class="nav-item nav-link dropdown-item " href="{ % url 'Profile:Clientform'  %}">create Profile</a>-->
+          
+          <a class="nav-item nav-link dropdown-item " href="{ % url 'Profile:editclient' %}">profile</a>
+      
+          
+          <a class="nav-item nav-link dropdown-item " href="{% url 'login:edit_profile'  %}">Edit Profile</a>
+          <a class="nav-item nav-link dropdown-item " href="{% url 'login:change_password'  %}">Change Password</a>
+          <a class="nav-item nav-link dropdown-item " href="{% url 'login:logout' %}">Logout</a>
+        </div>
+      </div>
+      {% endif %}
+
+</nav>
+   
+
+<br/>
+
+
+
+
+    <div class="row no-gutters">
+        <div class="col-12 col-sm-6 col-md-3">
+
+          <div class="container">
+            <div class=" mw-100 p-2 card  border-0 " style="width: 21.5rem;">
+             
+
+                 <img class="card-img-top" src=" {% if user.client.image %}{{ user.client.image.url  }}
+                 {% else %}https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1331&q=80{% endif  %}"
+                  style="width:21.2.5rem; height:15rem; " alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title center"> <b>{{ user }}</b></h5>
+                  <p class="card-text font-italic " style="color:red;"><p>{{ user.client.description }}</p></p>
+                  <p class="card-text">
+              <hr>
+                  
+                  <p><b>Email </b>  : {{ user.email }}</p>
+                  
+                  <p><b>City </b>: {{ user.client.county }}</p>
+                  <p><b>Contacts</b>: {{ user.client.phone }}</p>
+              
+        
+                  
+                </div>
+              </div>
+            </div>
+
+
+            
+          </div>
+
+        <div class="col-12 col-sm-6 col-md-6" style="color:rgb(21, 20, 13)">
+
+
+       <div class="container"> 
+       
+       <div class=" row"   >
+          //    
+      </div>
+  </div>
+</div>
+
+
+
+<div class="col-12 col-sm-6 col-md-3">
+
+       
+
+</div>
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<br>
+<hr>
+<div class="footer" style="color:;"> 
+        <hr/>
+       <footer class="container">
+            <p class="float-right"><a href="#">Back to top</a></p>
+              
+            <p>CramHub  &copy; 2023 <a href="{% url 'home:privacy' %}">Privacy</a> <a href="{% url 'home:terms' %}">Terms</a> <a href="{% url 'home:Contact' %}">contact us</a>
+          </footer>   
+    
+    </div>
+   
+
+{% endblock body %} 

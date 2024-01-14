@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{{%  block head %}
+<title>create an account</title>
+{% endblock head  %}}
+
+
+{% block body %}
+
+
+<br/>
+<div class="container">
+  <h2>Sign Up For A Free Account</h2>
+  <p class="lead">Welcome to CramHub
+  <a href="{% url 'client_signup' %}" class="btn btn-info btn-sm" role="button">create an account</a>
+  
+</div>
+
+
+{% endblock body %}
